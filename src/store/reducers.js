@@ -76,15 +76,12 @@ export const suggestions = (state = [], action) => {
   }
 };
 
-const resortNames = combineReducers({
-  fetching,
-  suggestions,
-});
-const singleReducers = combineReducers({
+export default combineReducers({
   allSkiDays,
   goal,
   errors,
-  resortNames,
+  resortNames: combineReducers({
+    fetching,
+    suggestions,
+  }),
 });
-
-export default singleReducers;
