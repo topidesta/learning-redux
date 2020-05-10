@@ -29,3 +29,16 @@ export const errors = (state = [], action) => {
       return state;
   }
 };
+
+export const allSkiDays = (state = [], action) => {
+  switch (action.type) {
+    case C.ADD_DAY:
+      const hasDay = state.some(
+        (skiDay) => skiDay.date === action.payload.date
+      );
+      return hasDay ? state : [...state, skiDay(null, action)];
+
+    default:
+      state;
+  }
+};
