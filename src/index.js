@@ -5,8 +5,8 @@ const state = ["user not authorized", "server feed not found"];
 
 // random action data payload
 const action = {
-  type: C.ADD_ERROR,
-  payload: "cannot connect to server",
+  type: C.CLEAR_ERROR,
+  payload: 0,
 };
 
 // added new state

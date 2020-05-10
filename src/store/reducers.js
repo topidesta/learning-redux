@@ -22,6 +22,9 @@ export const errors = (state = [], action) => {
       // spreed error dari state yang dibuat (immutable)
       return [...state, action.payload];
 
+    case C.CLEAR_ERROR:
+      return state.filter((message, i) => i !== action.payload);
+
     default:
       return state;
   }
