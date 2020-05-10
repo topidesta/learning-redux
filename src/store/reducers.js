@@ -1,20 +1,12 @@
 import C from "../constants";
 import { combineReducers } from "redux";
 
-// merubah function ke es6
-export const goal = (state, action) => {
-  if (action.type === C.SET_GOAL) {
-    // memastikan bahwa return berupa integer
-    return parseInt(action.payload);
-  } else {
-    return state;
-  }
-};
+export const goal = (state = 10, action) =>
+  action.type === C.SET_GOAL ? parseInt(action.payload) : state;
 
 // export reducers baru dengan syntac yang simple (ternary statement)
-export const skiDay = (state = null, action) => {
+export const skiDay = (state = null, action) =>
   action.type === C.ADD_DAY ? action.payload : state;
-};
 
 // error reducers dengna swith statement
 export const errors = (state = [], action) => {
@@ -37,13 +29,17 @@ export const allSkiDays = (state = [], action) => {
       const hasDay = state.some(
         (skiDay) => skiDay.date === action.payload.date
       );
-      return hasDay ? state : [...state, skiDay(null, action)];
+      return hasDay
+        ? state
+        : [...state, skiDay(null, action)].sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
 
     case C.REMOVE_DAY:
       return state.filter((skiDay) => skiDay.date !== action.payload);
 
     default:
-      state;
+      return state;
   }
 };
 
