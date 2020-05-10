@@ -9,3 +9,8 @@ export const goal = (state, action) => {
     return state;
   }
 };
+
+// export reducers baru dengan syntac yang simple (ternary statement)
+export const skiDay = (state = null, action) => {
+  action.type === C.ADD_DAY ? action.payload : state;
+};
