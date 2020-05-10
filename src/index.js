@@ -4,21 +4,22 @@ import { allSkiDays } from "./store/reducers";
 const state = [
   {
     resort: "kirkwood",
-    date: "2016-13-15",
+    date: "2016-12-15",
     powder: true,
+    backcountry: false,
+  },
+  {
+    resort: "Boreal",
+    date: "2016-12-16",
+    powder: false,
     backcountry: false,
   },
 ];
 
 // random action data payload
 const action = {
-  type: C.ADD_DAY,
-  payload: {
-    resort: "Boreal",
-    date: "2016-12-16",
-    powder: false,
-    backcountry: false,
-  },
+  type: C.REMOVE_DAY,
+  payload: "2016-12-15",
 };
 
 // added new state
