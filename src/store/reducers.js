@@ -1,4 +1,5 @@
 import C from "../constants";
+import { combineReducers } from "redux";
 
 // merubah function ke es6
 export const goal = (state, action) => {
@@ -74,3 +75,16 @@ export const suggestions = (state = [], action) => {
       return state;
   }
 };
+
+const resortNames = combineReducers({
+  fetching,
+  suggestions,
+});
+const singleReducers = combineReducers({
+  allSkiDays,
+  goal,
+  errors,
+  resortNames,
+});
+
+export default singleReducers;
