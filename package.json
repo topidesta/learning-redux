@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./src/index.js"
+    "start": "./node_modules/.bin/babel-node ./src/index.js",
+    "challenge-a": "./node_modules/.bin/babel-node ./src/challenges/FETCH_RESORT_NAMES.js",
+    "challenge-b": "./node_modules/.bin/babel-node ./src/challenges/CANCEL_FETCHING.js",
+    "challenge-c": "./node_modules/.bin/babel-node ./src/challenges/CLEAR_SUGGESTIONS.js",
+    "challenge-d": "./node_modules/.bin/babel-node ./src/challenges/CHANGE_SUGGESTIONS.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "expect": "^26.0.1"
   }
 }
