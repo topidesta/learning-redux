@@ -1,34 +1,20 @@
-var folder = __dirname;
+const path = require("path");
 
 module.exports = {
+  mode: "development",
   entry: "./src/index.js",
   output: {
-    path: folder + "dist/assets",
-    filename: "bundle.js",
-    publicPath: "assets",
-  },
-  devServer: {
-    inline: true,
-    contentBase: folder + "./dist",
-    port: 3000,
+    path: path.join(__dirname, "dist"),
+    filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: ["babel"],
-          options: {
-            presets: ["latest", "stage-0"],
-          },
-        },
-      },
-      {
-        test: /\.json$/,
-        exclude: /(node_modules)/,
-        loader: "json-loader",
-      },
-    ],
+        loader: "babel-loader"
+      }
+    ]
   },
+  devtool: "cheap-module-eval-source-map"
 };

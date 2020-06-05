@@ -1,1 +1,12 @@
-{ "presets": [["latest", "preset-stage-0"]] }
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "10"
+        }
+      }
+    ]
+  ]
+}
