@@ -1,22 +1,44 @@
 import C from "./constants";
-import appReducer from "./store/reducers";
-import { createStore } from "redux";
+import storeFactory from "./store";
 
-const store = createStore(appReducer);
+const initialState = localStorage["redux-store"]
+  ? JSON.parse(localStorage["redux-store"])
+  : {};
 
-// store.subscribe(() => console.log(`     Goal: ${store.getState().goal}`));
+const saveState = () => {
+  const state = JSON.stringify(store.getState());
+  localStorage["redux-store"] = state;
+};
 
-const unsubscribeGoalLogger = store.subscribe(() =>
-  console.log(`     Goal: ${store.getState().goal}`)
-);
+const store = storeFactory(initialState);
+store.subscribe(saveState);
 
-setInterval(() => {
-  store.dispatch({
-    type: C.SET_GOAL,
-    payload: Math.floor(Math.random() * 100),
-  });
-}, 250);
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    resort: "Mt MtMT",
+    date: "2020-12-12",
+    powder: true,
+    backcountry: false,
+  },
+});
 
-setTimeout(() => {
-  unsubscribeGoalLogger();
-}, 3000);
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    resort: "Mt Haha",
+    date: "2020-12-31",
+    powder: true,
+    backcountry: true,
+  },
+});
+
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    resort: "Al Ihsan",
+    date: "2020-12-09",
+    powder: false,
+    backcountry: true,
+  },
+});
