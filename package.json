@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
+    "suggestions": "webpack-dev-server ./server --port 3333 --delay 500",
     "cli": "./node_modules/.bin/babel-node ./src/index.js"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   }
