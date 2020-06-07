@@ -1,10 +1,38 @@
 import storeFactory from "./store";
-import { addDay, removeDay, setGoal } from "./actions";
+import {
+  addError,
+  clearError,
+  changeSuggestions,
+  clearSuggestions,
+} from "./actions";
 
 const store = storeFactory();
 
-store.dispatch(addDay("Heavenly", "2020-12-22"));
+// build addError() action creator
+store.dispatch(addError("ada yang gak beres"));
+// expect(store.getState().errors).toEqual(["ada yang gak beres"]);
 
-store.dispatch(removeDay("2020-12-22"));
+console.log(`
+  addError() action creator berhasil!
+`);
 
-store.dispatch(setGoal("44"));
+// build clearError() action creator
+store.dispatch(clearError(0));
+
+console.log(`
+  clearError() action creator berhasil!
+`);
+
+// build changeSuggestions() action creator
+store.dispatch(changeSuggestions(["satu", "dua", "tiga"]));
+
+console.log(`
+  changeSuggestions() action creator berhasil!
+`);
+
+// build clearSuggestions() action creator
+store.dispatch(clearSuggestions());
+
+console.log(`
+  clearSuggestion() action creator berhasil!
+`);
