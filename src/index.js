@@ -4,6 +4,7 @@ import {
   clearError,
   changeSuggestions,
   clearSuggestions,
+  randomGoals,
 } from "./actions";
 
 const store = storeFactory();
@@ -36,3 +37,9 @@ store.dispatch(clearSuggestions());
 console.log(`
   clearSuggestion() action creator berhasil!
 `);
+
+// random goal
+
+store.dispatch(randomGoals());
+
+store.dispatch(randomGoals());
